@@ -133,12 +133,14 @@ export class XtalCheckboxInputMD extends XtalTextInputMD{
     set checked(val) {
         (this.inputElement as HTMLInputElement).checked = val;
     }
-
+    boolValue = false;
     emitEvent() {
         const val = (this.inputElement as HTMLInputElement).checked;
-        this.value = val? 'on' : 'off';
+        this.value = val ? 'on' : 'off';
+        this.boolValue = val ? true : false;
         this.de('value', {
-            value: val
+            value: val,
+            boolValue: this.boolValue
         })
         
     }

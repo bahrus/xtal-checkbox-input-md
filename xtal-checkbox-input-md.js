@@ -119,6 +119,10 @@ const mainTemplate = createTemplate(/* html*/ `
 </style>
 `);
 export class XtalCheckboxInputMD extends XtalTextInputMD {
+    constructor() {
+        super(...arguments);
+        this.boolValue = false;
+    }
     static get is() { return 'xtal-checkbox-input-md'; }
     get eventContext() {
         this._eventContext.eventRules['change'] = e => {
@@ -135,8 +139,10 @@ export class XtalCheckboxInputMD extends XtalTextInputMD {
     emitEvent() {
         const val = this.inputElement.checked;
         this.value = val ? 'on' : 'off';
+        this.boolValue = val ? true : false;
         this.de('value', {
-            value: val
+            value: val,
+            boolValue: this.boolValue
         });
     }
     get mainTemplate() {
