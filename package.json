@@ -3,6 +3,7 @@
   "version": "0.0.4",
   "description": "TBD",
   "main": "xtal-checkbox-input-md.js",
+  "module": "xtal-checkbox-input-md.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node node_modules/xtal-test/serve.js"
